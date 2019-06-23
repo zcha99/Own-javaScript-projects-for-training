@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ellens vända ord</title>
+</head>
+
+<body>
+	<h1	id="main-heading">Här ska frågan skrivas ut baklänges</h1>
+	
+<script
+  src="https://code.jquery.com/jquery-2.1.0.js"
+  integrity="sha256-D6d1KSapXjq2tfZ6Ie9AYozkRHyB3fT2ys9mO2+4Wvc="
+  crossorigin="anonymous"></script>
+	<script>
+	var dinFraga = prompt("Skriv din fråga här: ");
+	
+	var baklenges = function (dinMening){
+    var i = 0;
+    var j = dinMening.length -1;
+    var temp1 = [];
+
+    while (j >= 0){
+        temp1[i] = dinMening[j];
+        i++;
+        j--;
+    } return temp1.join("");
+};
+		
+	$("#main-heading").text(baklenges(dinFraga)); //Här vill jag att sidan laddas innan nästa prompt dyker upp.
+
+
+
+
+
+	//for (var i = 0; i < 3; i++){
+	var svar = prompt("Skriv ditt svar bäklänges här");
+	$("body").append("<p>" + svar + "</p>"); //skall bytas till $("body").append("<p>" + svarBackwards + "</p>");
+	//}
+	</script>
+</body>
+</html>
+	

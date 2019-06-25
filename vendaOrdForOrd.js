@@ -1,4 +1,12 @@
+//Sträng skapas (prompt dinFraga)
 var dinFraga = "Då testar vi"; //Bara för test-data, prompt i html för input
+
+//Andra variabler som behövs
+var ord1 = [], ord2=[], ord3=[], ord4=[], ord5=[];
+var ord6 = [], ord7=[], ord8=[], ord9=[], ord10=[];
+var minArray = [];
+var baklengesFraga = [];
+
 
 // ********** Funktion för att vända strängar ****** //
 var baklenges = function (dinMening){
@@ -43,7 +51,7 @@ var ordFramtagare = function(mening, word){
 //Ny funktion för att ta fram första ordet i en mening
 
 
-
+// zcha99 190624 for future use when I learn how to create dynamic variables
 var mellan = 0;
 var antalOrd = mellan + 1;
 
@@ -54,17 +62,87 @@ for (var a = 0; a < dinFraga.length; a++){
     };
 
 };
-//Kod ovan tar fram antal Ord, dvs antal ord vi behöver skapa.
 
 
 
-//Sträng skapas (prompt dinFraga)
-//Ordframagare körs (ord1)
 //Konverterar till Array (minArray)
-//Tömmer av array (minArray)
-//Följande steg upprepas sen x antal gånger
-//ordframtagare i loopen (ord 2 - ord 10)
-//Array-tömmare i loopen (ord2 - ord10)
-//Vänd orden (kanske redan innan returneringen i ordframtagaren?)
-//Lägg till orden i baklengesFraga[] med .push()
-//Presentera frågan
+konverteraStringToArray(dinFraga);
+
+//Loop för att plocka ut alla ord.
+while (minArray.length > 0){
+    if (ord1[0] === undefined){
+        ordFramtagare(minArray, ord1);
+        tommaArray(minArray, ord1);
+        continue;
+    }else if(ord2[0] === undefined ){
+        ordFramtagare(minArray, ord2);
+        tommaArray(minArray, ord2);
+        continue;
+    }else if(ord3[0] === undefined ){
+        ordFramtagare(minArray, ord3);
+        tommaArray(minArray, ord3);
+        continue;
+    }else if(ord4[0] === undefined ){
+        ordFramtagare(minArray, ord4);
+        tommaArray(minArray, ord4);
+        continue;
+    }else if(ord5[0] === undefined ){
+        ordFramtagare(minArray, ord5);
+        tommaArray(minArray, ord5);
+        continue;
+    }else if(ord6[0] === undefined ){
+        ordFramtagare(minArray, ord6);
+        tommaArray(minArray, ord6);
+        continue;
+    }else if(ord7[0] === undefined ){
+        ordFramtagare(minArray, ord7);
+        tommaArray(minArray, ord7);
+        continue;
+    }else if(ord8[0] === undefined ){
+        ordFramtagare(minArray, ord8);
+        tommaArray(minArray, ord8);
+        continue;
+    }else if(ord9[0] === undefined ){
+        ordFramtagare(minArray, ord9);
+        tommaArray(minArray, ord9);
+        continue;
+    }else if(ord10[0] === undefined ){
+        ordFramtagare(minArray, ord10);
+        tommaArray(minArray, ord10);
+        continue;
+    }else{
+        console.log("inget ord är definierat");
+        break;
+    }return ord1.join(""), ord2.join(""), ord3.join(""), ord4.join(""), ord5.join(""), ord6.join(""), ord7.join(""), ord8.join(""), ord9.join(""), ord10.join("");
+};
+console.log("Debugcheckar:");
+console.log("ord1: " + ord1);
+console.log("ord2: " + ord2);
+console.log("ord3: " + baklenges(ord3));
+console.log("minArray: " + minArray + "minArray.length = " + minArray.length);
+
+//for-loop här som befolkar svars array
+for (var cnt = 0; cnt < antalOrd; cnt++){
+    if (baklengesFraga[0] === undefined){
+        baklengesFraga[0] = baklenges(ord1);
+    }else if (baklengesFraga[1] === undefined){
+        baklengesFraga[1] = baklenges(ord2);
+    }else if (baklengesFraga[2] === undefined){
+        baklengesFraga[2] = baklenges(ord3);
+    }else if (baklengesFraga[3] === undefined){
+        baklengesFraga[3] = baklenges(ord4);
+    }else if (baklengesFraga[4] === undefined){
+        baklengesFraga[4] = baklenges(ord5);
+    }else if (baklengesFraga[5] === undefined){
+        baklengesFraga[5] = baklenges(ord6);
+    }else if (baklengesFraga[7] === undefined){
+        baklengesFraga[7] = baklenges(ord8);
+    }else if (baklengesFraga[8] === undefined){
+        baklengesFraga[8] = baklenges(ord9);
+    }else if (baklengesFraga[9] === undefined){
+        baklengesFraga[9] = baklenges(ord10);
+    }else{
+        break;
+    }
+};
+console.log("Baklängesfråga = " + baklengesFraga.join(" "));

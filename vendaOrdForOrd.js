@@ -125,23 +125,24 @@ console.log("minArray: " + minArray + "minArray.length = " + minArray.length);
 for (var cnt = 0; cnt < antalOrd; cnt++){
     if (baklengesFraga[0] === undefined){
         baklengesFraga[0] = baklenges(ord1);
-        //Ser ut att funka. Gör även toLower
+    }else if (baklengesFraga[1] === undefined){
+        baklengesFraga[1] = baklenges(ord2);
+    }else if (baklengesFraga[2] === undefined){
+        baklengesFraga[2] = baklenges(ord3);
+    }else if (baklengesFraga[3] === undefined){
+        baklengesFraga[3] = baklenges(ord4);
+    }else if (baklengesFraga[4] === undefined){
+        baklengesFraga[4] = baklenges(ord5);
+    }else if (baklengesFraga[5] === undefined){
+        baklengesFraga[5] = baklenges(ord6);
+    }else if (baklengesFraga[7] === undefined){
+        baklengesFraga[7] = baklenges(ord8);
+    }else if (baklengesFraga[8] === undefined){
+        baklengesFraga[8] = baklenges(ord9);
+    }else if (baklengesFraga[9] === undefined){
+        baklengesFraga[9] = baklenges(ord10);
     }else{
         break;
     }
 };
-console.log("Baklängesfråga = " + baklengesFraga);
-
-
-//Följande steg upprepas sen x antal gånger
-//ordframtagare i loopen (ord 2 - ord 10)
-//Array-tömmare i loopen (ord2 - ord10)
-
-
-//Vänd orden (kanske redan innan returneringen i ordframtagaren?)
-
-
-//Lägg till orden i baklengesFraga[] med .push()
-
-
-//Presentera frågan
+console.log("Baklängesfråga = " + baklengesFraga.join(" "));

@@ -150,7 +150,7 @@ while (minArray.length > 0){
     }
 };
 
-	$("#main-heading").text("Frågan baklänges är:   " + baklengesFraga.join(" ")); //Här vill jag att sidan laddas innan nästa prompt dyker upp.
+	$("#main-heading").text("Frågan baklänges är: " + baklengesFraga.join(" ")); //Här vill jag att sidan laddas innan nästa prompt dyker upp.
 	alert(baklengesFraga.join(" ") + "?");
 
 	var dittSvar = prompt(baklengesFraga.join(" ") + "? (Skriv ditt svar bäklänges här)");
@@ -214,7 +214,7 @@ while (minArray.length > 0){
 };
 
 	$("body").append("<p1>" + dinFraga + " : " + "</p1>"); //skall bytas till $("body").append("<p>" + svarBackwards + "</p>");
-	$("body").append("<p2>" + baklengesSvar.join(" ") + "</p2>"); //skall bytas till $("body").append("<p>" + svarBackwards + "</p>");
+	$("body").append("<p2>" + "<br />" + baklengesSvar.join(" ") + "</p2>"); //skall bytas till $("body").append("<p>" + svarBackwards + "</p>");
 	
 	</script>
 </body>

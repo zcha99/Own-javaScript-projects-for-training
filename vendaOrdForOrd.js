@@ -6,10 +6,24 @@ var ord1 = [], ord2=[], ord3=[], ord4=[], ord5=[];
 var ord6 = [], ord7=[], ord8=[], ord9=[], ord10=[];
 var minArray = [];
 var baklengesFraga = [];
+var fraga = [];
+var svar = [];
 var baklengesSvar = [];
 var sord1 = [], sord2=[], sord3=[], sord4=[], sord5=[];
 var sord6 = [], sord7=[], sord8=[], sord9=[], sord10=[];
+var frod1 = [];
 
+
+var grammatik = function(_aArray, _newArray){
+    for (var cnt = 0; cnt < _aArray.length; cnt++){
+        if (cnt === 0){
+            _newArray[cnt] = _aArray[cnt].toUpperCase();
+        }else{
+            _newArray[cnt] = _aArray[cnt].toLowerCase();
+        }
+    }return _newArray;
+};
+//Funktion för att göra första bokstaven stor i en Array, resten små
 
 // ********** Funktion för att vända strängar ****** //
 var baklenges = function (dinMening){
@@ -21,7 +35,21 @@ var baklenges = function (dinMening){
         temp1[i] = dinMening[j];
         i++;
         j--;
-    } return temp1.join("");
+    }return temp1.join("");
+};
+
+var baklenges1 = function (dinMening){
+    var i = 0;
+    var j = dinMening.length -1;
+    var temp1 = [];
+    var _temp = [];
+
+    while (j >= 0){
+        temp1[i] = dinMening[j];
+        i++;
+        j--;
+    }grammatik(temp1, _temp);
+    return _temp.join("");
 };
 // ********************************************** //
 //Fler funktioner, testade för sig men inte i program
@@ -75,7 +103,7 @@ konverteraStringToArray(dinFraga);
 while (minArray.length > 0){
     if (ord1[0] === undefined){
         ordFramtagare(minArray, ord1);
-        baklengesFraga[0] = baklenges(ord1);
+        baklengesFraga[0] = baklenges1(ord1);
         tommaArray(minArray, ord1);
         continue;
     }else if(ord2[0] === undefined ){
@@ -135,13 +163,12 @@ console.log("Baklängesfråga = " + baklengesFraga.join(" "));
 
 //Konverterar till Array (minArray)
 konverteraStringToArray(dittSvar);
-console.log(minArray);
 
 //Loop för att plocka ut alla ord.
 while (minArray.length > 0){
     if (sord1[0] === undefined){
         ordFramtagare(minArray, sord1);
-        baklengesSvar[0] = baklenges(sord1);
+        baklengesSvar[0] = baklenges1(sord1);
         tommaArray(minArray, sord1);
         continue;
     }else if(sord2[0] === undefined ){
@@ -194,5 +221,5 @@ while (minArray.length > 0){
         break;
     }
 };
-
+grammatik(baklengesSvar, svar);
 console.log("Baklängessvar = " + baklengesSvar.join(" "));

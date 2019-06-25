@@ -1,11 +1,14 @@
 //Sträng skapas (prompt dinFraga)
 var dinFraga = "Då testar vi ett lite längre exempel"; //Bara för test-data, prompt i html för input
-
+var dittSvar = "räh remmok tte ravs"; //Bara för test-data, prompt i html för input
 //Andra variabler som behövs
 var ord1 = [], ord2=[], ord3=[], ord4=[], ord5=[];
 var ord6 = [], ord7=[], ord8=[], ord9=[], ord10=[];
 var minArray = [];
 var baklengesFraga = [];
+var baklengesSvar = [];
+var sord1 = [], sord2=[], sord3=[], sord4=[], sord5=[];
+var sord6 = [], sord7=[], sord8=[], sord9=[], sord10=[];
 
 
 // ********** Funktion för att vända strängar ****** //
@@ -127,3 +130,69 @@ while (minArray.length > 0){
 };
 
 console.log("Baklängesfråga = " + baklengesFraga.join(" "));
+
+/* ************ Ny kod här *********** */
+
+//Konverterar till Array (minArray)
+konverteraStringToArray(dittSvar);
+console.log(minArray);
+
+//Loop för att plocka ut alla ord.
+while (minArray.length > 0){
+    if (sord1[0] === undefined){
+        ordFramtagare(minArray, sord1);
+        baklengesSvar[0] = baklenges(sord1);
+        tommaArray(minArray, sord1);
+        continue;
+    }else if(sord2[0] === undefined ){
+        ordFramtagare(minArray, sord2);
+        baklengesSvar[1] = baklenges(sord2);
+        tommaArray(minArray, sord2);
+        continue;
+    }else if(sord3[0] === undefined ){
+        ordFramtagare(minArray, sord3);
+        baklengesSvar[2] = baklenges(sord3);
+        tommaArray(minArray, sord3);
+        continue;
+    }else if(sord4[0] === undefined ){
+        ordFramtagare(minArray, sord4);
+        baklengesSvar[3] = baklenges(sord4);
+        tommaArray(minArray, sord4);
+        continue;
+    }else if(sord5[0] === undefined ){
+        ordFramtagare(minArray, sord5);
+        baklengesSvar[4] = baklenges(sord5);
+        tommaArray(minArray, sord5);
+        continue;
+    }else if(sord6[0] === undefined ){
+        ordFramtagare(minArray, sord6);
+        baklengesSvar[5] = baklenges(sord6);
+        tommaArray(minArray, sord6);
+        continue;
+    }else if(sord7[0] === undefined ){
+        ordFramtagare(minArray, sord7);
+        baklengesSvar[6] = baklenges(sord7);
+        tommaArray(minArray, sord7);
+        continue;
+    }else if(sord8[0] === undefined ){
+        ordFramtagare(minArray, sord8);
+        baklengesSvar[7] = baklenges(sord8);
+        tommaArray(minArray, sord8);
+        continue;
+    }else if(sord9[0] === undefined ){
+        ordFramtagare(minArray, sord9);
+        baklengesSvar[8] = baklenges(sord9);
+        tommaArray(minArray, sord9);
+        continue;
+    }else if(sord10[0] === undefined ){
+        ordFramtagare(minArray, sord10);
+        baklengesSvar[9] = baklenges(sord10);
+        tommaArray(minArray, sord10);
+        continue;
+    }else{
+        console.log("inget ord är definierat");
+        break;
+    }
+};
+
+console.log("Baklängessvar = " + baklengesSvar.join(" "));

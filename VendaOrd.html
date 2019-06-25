@@ -13,7 +13,8 @@
   crossorigin="anonymous"></script>
 	<script>
 	var dinFraga = prompt("Skriv din fråga här: ");
-	
+
+	/* *** VARIABLER *** */	
 var ord1 = [], ord2=[], ord3=[], ord4=[], ord5=[];
 var ord6 = [], ord7=[], ord8=[], ord9=[], ord10=[];
 var minArray = [];
@@ -22,6 +23,19 @@ var baklengesSvar = [];
 var sord1 = [], sord2=[], sord3=[], sord4=[], sord5=[];
 var sord6 = [], sord7=[], sord8=[], sord9=[], sord10=[];
 
+/* *** FUNKTIONER *** */
+//Första bokstaven stor, resten germener
+var grammatik = function(_aArray, _newArray){
+    for (var cnt = 0; cnt < _aArray.length; cnt++){
+        if (cnt === 0){
+            _newArray[cnt] = _aArray[cnt].toUpperCase();
+        }else{
+            _newArray[cnt] = _aArray[cnt].toLowerCase();
+        }
+    }return _newArray;
+};
+
+// Vänd en sträng
 var baklenges = function (dinMening){
     var i = 0;
     var j = dinMening.length -1;
@@ -31,9 +45,25 @@ var baklenges = function (dinMening){
         temp1[i] = dinMening[j];
         i++;
         j--;
-    } return temp1.join("");
+    }return temp1.join("");
 };
 
+// Vänd en sträng där första bokstaven blir stor
+var baklenges1 = function (dinMening){
+    var i = 0;
+    var j = dinMening.length -1;
+    var temp1 = [];
+    var _temp = [];
+
+    while (j >= 0){
+        temp1[i] = dinMening[j];
+        i++;
+        j--;
+    }grammatik(temp1, _temp);
+    return _temp.join("");
+};
+
+// Tömmer en array från 0 enligt längd på argument 2
 var tommaArray = function(mening, word){
     for (var cnt = 0; cnt < word.length; cnt++){
         mening.shift();
@@ -41,14 +71,15 @@ var tommaArray = function(mening, word){
     while(mening[0] === " "){
         mening.shift();
     } return mening;
-};
+}
 
+// Gör om en sträng till en array
 var konverteraStringToArray = function(mening){
     for (var cnt = 0; cnt < mening.length; cnt++){
         minArray[cnt] = mening[cnt];
     } return minArray.join("");
-};
-
+}
+// Tar ut orden från en "promptad" mening
 var ordFramtagare = function(mening, word){
     for (var cnt = 0; cnt < mening.length; cnt++){
         if (mening[cnt] !== " "){
@@ -57,25 +88,16 @@ var ordFramtagare = function(mening, word){
             break;
         }
     } return word.join("");
-};
-
-var mellan = 0;
-var antalOrd = mellan + 1;
-
-for (var a = 0; a < dinFraga.length; a++){
-    if (dinFraga[a] === " "){
-        mellan += 1;
-        antalOrd += 1;
-    };
-
-};
+}
+/* *** FUNKTIONER SLUT *** */
 
 konverteraStringToArray(dinFraga);
 
+//Loop för att plocka ut alla ord. - //Zcha 190625 Borde gå att göra en funktion utav. 
 while (minArray.length > 0){
     if (ord1[0] === undefined){
         ordFramtagare(minArray, ord1);
-        baklengesFraga[0] = baklenges(ord1);
+        baklengesFraga[0] = baklenges1(ord1); //OBS! Första ordet använder baklenges1
         tommaArray(minArray, ord1);
         continue;
     }else if(ord2[0] === undefined ){
@@ -124,23 +146,21 @@ while (minArray.length > 0){
         tommaArray(minArray, ord10);
         continue;
     }else{
-       break;
+        break;
     }
 };
 
-		
-	$("#main-heading").text("Frågan baklänges är:" + baklengesFraga.join(" ")); //Här vill jag att sidan laddas innan nästa prompt dyker upp.
+	$("#main-heading").text("Frågan baklänges är:   " + baklengesFraga.join(" ")); //Här vill jag att sidan laddas innan nästa prompt dyker upp.
 	alert(baklengesFraga.join(" ") + "?");
 
-	var dittSvar = prompt("Skriv ditt svar bäklänges här");
-	
-	konverteraStringToArray(dittSvar);
-console.log(minArray);
+	var dittSvar = prompt(baklengesFraga.join(" ") + "? (Skriv ditt svar bäklänges här)");
+konverteraStringToArray(dittSvar);
 
+//Loop för att plocka ut alla ord.
 while (minArray.length > 0){
     if (sord1[0] === undefined){
         ordFramtagare(minArray, sord1);
-        baklengesSvar[0] = baklenges(sord1);
+        baklengesSvar[0] = baklenges1(sord1); //OBS! baklenges1 för ord1
         tommaArray(minArray, sord1);
         continue;
     }else if(sord2[0] === undefined ){
@@ -193,7 +213,8 @@ while (minArray.length > 0){
     }
 };
 
-	$("body").append("<p>" + baklengesSvar.join(" ") + "</p>"); //skall bytas till $("body").append("<p>" + svarBackwards + "</p>");
+	$("body").append("<p1>" + dinFraga + " : " + "</p1>"); //skall bytas till $("body").append("<p>" + svarBackwards + "</p>");
+	$("body").append("<p2>" + baklengesSvar.join(" ") + "</p2>"); //skall bytas till $("body").append("<p>" + svarBackwards + "</p>");
 	
 	</script>
 </body>

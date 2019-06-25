@@ -11,9 +11,10 @@ var svar = [];
 var baklengesSvar = [];
 var sord1 = [], sord2=[], sord3=[], sord4=[], sord5=[];
 var sord6 = [], sord7=[], sord8=[], sord9=[], sord10=[];
-var frod1 = [];
 
+/* *** FUNKTIONER *** */
 
+//Första bokstaven stor, resten germener
 var grammatik = function(_aArray, _newArray){
     for (var cnt = 0; cnt < _aArray.length; cnt++){
         if (cnt === 0){
@@ -23,9 +24,8 @@ var grammatik = function(_aArray, _newArray){
         }
     }return _newArray;
 };
-//Funktion för att göra första bokstaven stor i en Array, resten små
 
-// ********** Funktion för att vända strängar ****** //
+// Vänd en sträng
 var baklenges = function (dinMening){
     var i = 0;
     var j = dinMening.length -1;
@@ -38,6 +38,7 @@ var baklenges = function (dinMening){
     }return temp1.join("");
 };
 
+// Vänd en sträng där första bokstaven blir stor
 var baklenges1 = function (dinMening){
     var i = 0;
     var j = dinMening.length -1;
@@ -51,8 +52,8 @@ var baklenges1 = function (dinMening){
     }grammatik(temp1, _temp);
     return _temp.join("");
 };
-// ********************************************** //
-//Fler funktioner, testade för sig men inte i program
+
+// Tömmer en array från 0 enligt längd på argument 2
 var tommaArray = function(mening, word){
     for (var cnt = 0; cnt < word.length; cnt++){
         mening.shift();
@@ -61,15 +62,14 @@ var tommaArray = function(mening, word){
         mening.shift();
     } return mening;
 }
-//Ny funktion som krävs för tommaArray
 
+// Gör om en sträng till en array
 var konverteraStringToArray = function(mening){
     for (var cnt = 0; cnt < mening.length; cnt++){
         minArray[cnt] = mening[cnt];
     } return minArray.join("");
 }
-//Ny funktion för att konvertera sträng till array
-
+// Tar ut orden från en "promptad" mening
 var ordFramtagare = function(mening, word){
     for (var cnt = 0; cnt < mening.length; cnt++){
         if (mening[cnt] !== " "){
@@ -79,9 +79,9 @@ var ordFramtagare = function(mening, word){
         }
     } return word.join("");
 }
-//Ny funktion för att ta fram första ordet i en mening
+/* *** FUNKTIONER SLUT *** */
 
-
+/* *** KOD SOM INTE ANVÄNDS NU *** 
 // zcha99 190624 for future use when I learn how to create dynamic variables
 var mellan = 0;
 var antalOrd = mellan + 1;
@@ -93,17 +93,15 @@ for (var a = 0; a < dinFraga.length; a++){
     };
 
 };
+*/
 
-
-
-//Konverterar till Array (minArray)
 konverteraStringToArray(dinFraga);
 
-//Loop för att plocka ut alla ord.
+//Loop för att plocka ut alla ord. - //Zcha 190625 Borde gå att göra en funktion utav. 
 while (minArray.length > 0){
     if (ord1[0] === undefined){
         ordFramtagare(minArray, ord1);
-        baklengesFraga[0] = baklenges1(ord1);
+        baklengesFraga[0] = baklenges1(ord1); //OBS! Första ordet använder baklenges1
         tommaArray(minArray, ord1);
         continue;
     }else if(ord2[0] === undefined ){
@@ -152,23 +150,20 @@ while (minArray.length > 0){
         tommaArray(minArray, ord10);
         continue;
     }else{
-        console.log("inget ord är definierat");
         break;
     }
 };
 
-console.log("Baklängesfråga = " + baklengesFraga.join(" "));
+console.log("Baklängesfråga = " + baklengesFraga.join(" ")); // Tas bort i html
 
-/* ************ Ny kod här *********** */
-
-//Konverterar till Array (minArray)
+// I stort sett samma kod för svaret som för frågan - //Zcha 190625 När/om jag löser funktionsfråan här så ryker mycket kod.
 konverteraStringToArray(dittSvar);
 
 //Loop för att plocka ut alla ord.
 while (minArray.length > 0){
     if (sord1[0] === undefined){
         ordFramtagare(minArray, sord1);
-        baklengesSvar[0] = baklenges1(sord1);
+        baklengesSvar[0] = baklenges1(sord1); //OBS! baklenges1 för ord1
         tommaArray(minArray, sord1);
         continue;
     }else if(sord2[0] === undefined ){
@@ -217,9 +212,8 @@ while (minArray.length > 0){
         tommaArray(minArray, sord10);
         continue;
     }else{
-        console.log("inget ord är definierat");
         break;
     }
 };
-grammatik(baklengesSvar, svar);
-console.log("Baklängessvar = " + baklengesSvar.join(" "));
+
+console.log("Baklängessvar = " + baklengesSvar.join(" ")); // Tas bort i html

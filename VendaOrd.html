@@ -14,7 +14,12 @@
 	<script>
 	var dinFraga = prompt("Skriv din fråga här: ");
 	
-	var baklenges = function (dinMening){
+var ord1 = [], ord2=[], ord3=[], ord4=[], ord5=[];
+var ord6 = [], ord7=[], ord8=[], ord9=[], ord10=[];
+var minArray = [];
+var baklengesFraga = [];
+
+var baklenges = function (dinMening){
     var i = 0;
     var j = dinMening.length -1;
     var temp1 = [];
@@ -25,8 +30,104 @@
         j--;
     } return temp1.join("");
 };
+
+var tommaArray = function(mening, word){
+    for (var cnt = 0; cnt < word.length; cnt++){
+        mening.shift();
+    } 
+    while(mening[0] === " "){
+        mening.shift();
+    } return mening;
+};
+
+var konverteraStringToArray = function(mening){
+    for (var cnt = 0; cnt < mening.length; cnt++){
+        minArray[cnt] = mening[cnt];
+    } return minArray.join("");
+};
+
+var ordFramtagare = function(mening, word){
+    for (var cnt = 0; cnt < mening.length; cnt++){
+        if (mening[cnt] !== " "){
+            word[cnt] = mening[cnt];
+        } else {
+            break;
+        }
+    } return word.join("");
+};
+
+var mellan = 0;
+var antalOrd = mellan + 1;
+
+for (var a = 0; a < dinFraga.length; a++){
+    if (dinFraga[a] === " "){
+        mellan += 1;
+        antalOrd += 1;
+    };
+
+};
+
+konverteraStringToArray(dinFraga);
+
+while (minArray.length > 0){
+    if (ord1[0] === undefined){
+        ordFramtagare(minArray, ord1);
+        baklengesFraga[0] = baklenges(ord1);
+        tommaArray(minArray, ord1);
+        continue;
+    }else if(ord2[0] === undefined ){
+        ordFramtagare(minArray, ord2);
+        baklengesFraga[1] = baklenges(ord2);
+        tommaArray(minArray, ord2);
+        continue;
+    }else if(ord3[0] === undefined ){
+        ordFramtagare(minArray, ord3);
+        baklengesFraga[2] = baklenges(ord3);
+        tommaArray(minArray, ord3);
+        continue;
+    }else if(ord4[0] === undefined ){
+        ordFramtagare(minArray, ord4);
+        baklengesFraga[3] = baklenges(ord4);
+        tommaArray(minArray, ord4);
+        continue;
+    }else if(ord5[0] === undefined ){
+        ordFramtagare(minArray, ord5);
+        baklengesFraga[4] = baklenges(ord5);
+        tommaArray(minArray, ord5);
+        continue;
+    }else if(ord6[0] === undefined ){
+        ordFramtagare(minArray, ord6);
+        baklengesFraga[5] = baklenges(ord6);
+        tommaArray(minArray, ord6);
+        continue;
+    }else if(ord7[0] === undefined ){
+        ordFramtagare(minArray, ord7);
+        baklengesFraga[6] = baklenges(ord7);
+        tommaArray(minArray, ord7);
+        continue;
+    }else if(ord8[0] === undefined ){
+        ordFramtagare(minArray, ord8);
+        baklengesFraga[7] = baklenges(ord8);
+        tommaArray(minArray, ord8);
+        continue;
+    }else if(ord9[0] === undefined ){
+        ordFramtagare(minArray, ord9);
+        baklengesFraga[8] = baklenges(ord9);
+        tommaArray(minArray, ord9);
+        continue;
+    }else if(ord10[0] === undefined ){
+        ordFramtagare(minArray, ord10);
+        baklengesFraga[9] = baklenges(ord10);
+        tommaArray(minArray, ord10);
+        continue;
+    }else{
+        console.log("inget ord är definierat");
+        break;
+    }
+};
+
 		
-	$("#main-heading").text(baklenges(dinFraga)); //Här vill jag att sidan laddas innan nästa prompt dyker upp.
+	$("#main-heading").text(baklengesFraga.join(" ")); //Här vill jag att sidan laddas innan nästa prompt dyker upp.
 
 
 

@@ -13,16 +13,16 @@
   crossorigin="anonymous"></script>
 	<script>
 	var dinFraga = prompt("Skriv din fråga här: ");
-
 	/* *** VARIABLER *** */	
 var ord1 = [], ord2=[], ord3=[], ord4=[], ord5=[];
 var ord6 = [], ord7=[], ord8=[], ord9=[], ord10=[];
+var ord11 = [], ord12=[], ord13=[], ord14=[], ord15=[];
+var ord16 = [], ord17=[], ord18=[], ord19=[], ord20=[];
 var minArray = [];
 var baklengesFraga = [];
 var baklengesSvar = [];
 var sord1 = [], sord2=[], sord3=[], sord4=[], sord5=[];
 var sord6 = [], sord7=[], sord8=[], sord9=[], sord10=[];
-
 /* *** FUNKTIONER *** */
 //Första bokstaven stor, resten germener
 var grammatik = function(_aArray, _newArray){
@@ -34,27 +34,23 @@ var grammatik = function(_aArray, _newArray){
         }
     }return _newArray;
 };
-
 // Vänd en sträng
 var baklenges = function (dinMening){
     var i = 0;
     var j = dinMening.length -1;
     var temp1 = [];
-
     while (j >= 0){
         temp1[i] = dinMening[j];
         i++;
         j--;
     }return temp1.join("");
 };
-
 // Vänd en sträng där första bokstaven blir stor
 var baklenges1 = function (dinMening){
     var i = 0;
     var j = dinMening.length -1;
     var temp1 = [];
     var _temp = [];
-
     while (j >= 0){
         temp1[i] = dinMening[j];
         i++;
@@ -62,7 +58,6 @@ var baklenges1 = function (dinMening){
     }grammatik(temp1, _temp);
     return _temp.join("");
 };
-
 // Tömmer en array från 0 enligt längd på argument 2
 var tommaArray = function(mening, word){
     for (var cnt = 0; cnt < word.length; cnt++){
@@ -72,7 +67,6 @@ var tommaArray = function(mening, word){
         mening.shift();
     } return mening;
 }
-
 // Gör om en sträng till en array
 var konverteraStringToArray = function(mening){
     for (var cnt = 0; cnt < mening.length; cnt++){
@@ -90,9 +84,7 @@ var ordFramtagare = function(mening, word){
     } return word.join("");
 }
 /* *** FUNKTIONER SLUT *** */
-
 konverteraStringToArray(dinFraga);
-
 //Loop för att plocka ut alla ord. - //Zcha 190625 Borde gå att göra en funktion utav. 
 while (minArray.length > 0){
     if (ord1[0] === undefined){
@@ -145,17 +137,65 @@ while (minArray.length > 0){
         baklengesFraga[9] = baklenges(ord10);
         tommaArray(minArray, ord10);
         continue;
-    }else{
+    }else if(ord11[0] === undefined){
+        ordFramtagare(minArray, ord11);
+        baklengesFraga[10] = baklenges(ord11);
+        tommaArray(minArray, ord11);
+        continue;
+    }else if(ord12[0] === undefined ){
+        ordFramtagare(minArray, ord12);
+        baklengesFraga[11] = baklenges(ord12);
+        tommaArray(minArray, ord12);
+        continue;
+    }else if(ord13[0] === undefined ){
+        ordFramtagare(minArray, ord13);
+        baklengesFraga[12] = baklenges(ord13);
+        tommaArray(minArray, ord13);
+        continue;
+    }else if(ord14[0] === undefined ){
+        ordFramtagare(minArray, ord14);
+        baklengesFraga[13] = baklenges(ord14);
+        tommaArray(minArray, ord14);
+        continue;
+    }else if(ord15[0] === undefined ){
+        ordFramtagare(minArray, ord15);
+        baklengesFraga[14] = baklenges(ord15);
+        tommaArray(minArray, ord15);
+        continue;
+    }else if(ord16[0] === undefined ){
+        ordFramtagare(minArray, ord16);
+        baklengesFraga[15] = baklenges(ord16);
+        tommaArray(minArray, ord16);
+        continue;
+    }else if(ord17[0] === undefined ){
+        ordFramtagare(minArray, ord17);
+        baklengesFraga[16] = baklenges(ord17);
+        tommaArray(minArray, ord17);
+        continue;
+    }else if(ord18[0] === undefined ){
+        ordFramtagare(minArray, ord18);
+        baklengesFraga[17] = baklenges(ord18);
+        tommaArray(minArray, ord18);
+        continue;
+    }else if(ord19[0] === undefined ){
+        ordFramtagare(minArray, ord19);
+        baklengesFraga[18] = baklenges(ord19);
+        tommaArray(minArray, ord19);
+        continue;
+    }else if(ord20[0] === undefined ){
+        ordFramtagare(minArray, ord20);
+        baklengesFraga[19] = baklenges(ord20);
+        tommaArray(minArray, ord10);
+        continue;
+    }{
         break;
     }
 };
 
 	$("#main-heading").text("Frågan baklänges är: " + baklengesFraga.join(" ")); //Här vill jag att sidan laddas innan nästa prompt dyker upp.
 	alert(baklengesFraga.join(" ") + "?");
-
 	var dittSvar = prompt(baklengesFraga.join(" ") + "? (Skriv ditt svar bäklänges här)");
 konverteraStringToArray(dittSvar);
-
 //Loop för att plocka ut alla ord.
 while (minArray.length > 0){
     if (sord1[0] === undefined){
@@ -212,7 +252,6 @@ while (minArray.length > 0){
         break;
     }
 };
-
 	$("body").append("<p1>" + dinFraga + " : " + "</p1>"); //skall bytas till $("body").append("<p>" + svarBackwards + "</p>");
 	$("body").append("<p2>" + "<br />" + baklengesSvar.join(" ") + "</p2>"); //skall bytas till $("body").append("<p>" + svarBackwards + "</p>");
 	

@@ -4,6 +4,8 @@ var dittSvar = "räh remmok tte ravs"; //Bara för test-data, prompt i html för
 //Andra variabler som behövs
 var ord1 = [], ord2=[], ord3=[], ord4=[], ord5=[];
 var ord6 = [], ord7=[], ord8=[], ord9=[], ord10=[];
+var ord11 = [], ord12=[], ord13=[], ord14=[], ord15=[];
+var ord16 = [], ord17=[], ord18=[], ord19=[], ord20=[];
 var minArray = [];
 var baklengesFraga = [];
 var fraga = [];
@@ -11,6 +13,8 @@ var svar = [];
 var baklengesSvar = [];
 var sord1 = [], sord2=[], sord3=[], sord4=[], sord5=[];
 var sord6 = [], sord7=[], sord8=[], sord9=[], sord10=[];
+var sord11 = [], sord12=[], sord13=[], sord14=[], sord15=[];
+var sord16 = [], sord17=[], sord18=[], sord19=[], sord20=[];
 
 /* *** FUNKTIONER *** */
 
@@ -85,13 +89,11 @@ var ordFramtagare = function(mening, word){
 // zcha99 190624 for future use when I learn how to create dynamic variables
 var mellan = 0;
 var antalOrd = mellan + 1;
-
 for (var a = 0; a < dinFraga.length; a++){
     if (dinFraga[a] === " "){
         mellan += 1;
         antalOrd += 1;
     };
-
 };
 */
 
@@ -149,7 +151,57 @@ while (minArray.length > 0){
         baklengesFraga[9] = baklenges(ord10);
         tommaArray(minArray, ord10);
         continue;
-    }else{
+    }else if(ord11[0] === undefined){
+        ordFramtagare(minArray, ord11);
+        baklengesFraga[10] = baklenges(ord11);
+        tommaArray(minArray, ord11);
+        continue;
+    }else if(ord12[0] === undefined ){
+        ordFramtagare(minArray, ord12);
+        baklengesFraga[11] = baklenges(ord12);
+        tommaArray(minArray, ord12);
+        continue;
+    }else if(ord13[0] === undefined ){
+        ordFramtagare(minArray, ord13);
+        baklengesFraga[12] = baklenges(ord13);
+        tommaArray(minArray, ord13);
+        continue;
+    }else if(ord14[0] === undefined ){
+        ordFramtagare(minArray, ord14);
+        baklengesFraga[13] = baklenges(ord14);
+        tommaArray(minArray, ord14);
+        continue;
+    }else if(ord15[0] === undefined ){
+        ordFramtagare(minArray, ord15);
+        baklengesFraga[14] = baklenges(ord15);
+        tommaArray(minArray, ord15);
+        continue;
+    }else if(ord16[0] === undefined ){
+        ordFramtagare(minArray, ord16);
+        baklengesFraga[15] = baklenges(ord16);
+        tommaArray(minArray, ord16);
+        continue;
+    }else if(ord17[0] === undefined ){
+        ordFramtagare(minArray, ord17);
+        baklengesFraga[16] = baklenges(ord17);
+        tommaArray(minArray, ord17);
+        continue;
+    }else if(ord18[0] === undefined ){
+        ordFramtagare(minArray, ord18);
+        baklengesFraga[17] = baklenges(ord18);
+        tommaArray(minArray, ord18);
+        continue;
+    }else if(ord19[0] === undefined ){
+        ordFramtagare(minArray, ord19);
+        baklengesFraga[18] = baklenges(ord19);
+        tommaArray(minArray, ord19);
+        continue;
+    }else if(ord20[0] === undefined ){
+        ordFramtagare(minArray, ord20);
+        baklengesFraga[19] = baklenges(ord20);
+        tommaArray(minArray, ord10);
+        continue;
+    }{
         break;
     }
 };
